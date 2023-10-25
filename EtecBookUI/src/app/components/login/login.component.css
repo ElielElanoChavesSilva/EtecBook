@@ -1,0 +1,20 @@
+:host-context(body) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    min-width: 100vh;
+    text-align: center;
+    width: 400px !important;
+}
+
+.form-signin {
+    width: 400px !important;
+}
+
+.separator {
+    display: flex;
+    align-items: ce;
+}
