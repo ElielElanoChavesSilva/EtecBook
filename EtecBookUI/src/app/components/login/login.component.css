@@ -1,20 +1,31 @@
-:host-context(body) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 main {
-    min-width: 100vh;
-    text-align: center;
-    width: 400px !important;
+  min-height: 100vh;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
-.form-signin {
-    width: 400px !important;
+form {
+  width: 400px !important;
 }
 
 .separator {
-    display: flex;
-    align-items: ce;
+  display: flex;
+  align-items: center;
+  color: var(--bs-body-color);
+  margin: 15px 0;
+}
+
+.separator h6 {
+  padding: 0 10px;
+  font-weight: normal;
+  color: var(--bs-body-color);
+  margin-bottom: 0.rem;
+}
+
+.separator .line {
+  flex: 1;
+  height: 1px;
+  background-color:  var(--bs-body-color);
 }

@@ -1,17 +1,24 @@
-<main class="d-flex align-items-center justfy-content-center">
-    <form >
+<main class="w-100 m-auto text-center">
+    <form [formGroup]="loginForm">
         <img src="assets/Logo/logo.png" alt="logo" class="mg-1" width="150">
         <h2 class="mb-2 fw-normal">EtecBook</h2>
         <h5 class="mb-3 fw-normal"> Sua vida escolar, mais conectada!!!</h5>
 
         <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="email" placeholder=" Email ou Nome de Usuário">
+            <input formControlName="email" type="text" class="form-control" id="email" placeholder=" Email ou Nome de Usuário"
+            [class.is-invalid]="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')"
+            >
             <label for="email">Email ou Nome de Usuário</label>
+            <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')"
+            class="text-danger text-start d-block my-1">Campo Obrigatório</small>
         </div>
 
         <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="password" placeholder="Senha ou Nome de Usuário">
+            <input formControlName="password" type="text" class="form-control" id="password" placeholder="Senha ou Nome de Usuário"
+            [class.is-invalid]="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">
             <label for="password">Senha de Acesso</label>
+            <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')"
+            class="text-danger text-start d-block my-1">Campo Obrigatório</small>
         </div>
 
         <div class="checkbox my-2 text-start">
@@ -20,7 +27,7 @@
             </label>
         </div>
 
-        <button type="submit" class="w-100 btn btn-lg btn-primary mb-2"> Entrar </button>
+        <button (click)="onSubmit()" type="submit" class="w-100 btn btn-lg btn-primary mb-2"> Entrar </button>
 
         <a routerLink="/forget" class="text-decoration-none">Esqueceu a Senha?</a>
 
@@ -30,6 +37,6 @@
             <div class="line"></div>
         </div>
 
-        <a routerLink="/register" class="w-100 btn btn-success mt-1"></a>
+        <a routerLink="/register" class="w-100 btn btn-success mt-1">Criar Conta</a>
     </form>
 </main>
