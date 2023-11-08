@@ -1,5 +1,6 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
+import ValidateForm from 'src/app/helpers/validateForm';
 
 @Component({
   selector: 'app-register',
@@ -20,13 +21,17 @@ export class RegisterComponent {
     });
   }
 
-
   onSubmit() {
     if (this.registerForm.valid) {
       //Enviar dadods para API
       console.log(this.registerForm.value);
     }else {
-      //Exibir uma mensagem de erro
+      //Exibir uma mensagem
+      ValidateForm.validateAllFormField(this.registerForm);
     }
+  }
+
+  get f(){
+    return this.registerForm.controls;
   }
 }
